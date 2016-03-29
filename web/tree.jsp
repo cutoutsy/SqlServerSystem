@@ -22,10 +22,10 @@ var treeMenu = [
 	
 	{ level:1, name:"数据备份"},
 	{ level:2, name:"选择备份", ico:"img/icon_default.gif",link:"backup/Backup_listdatabase.action"},
-	{ level:2, name:"查询备份", ico:"img/icon_default.gif",link:"role_list.html"},
+	{ level:2, name:"查询备份", ico:"img/icon_default.gif",link:"backup/database_search.jsp"},
 	
 	{ level:1, name:"数据还原"},
-	{ level:2, name:"数据还原", ico:"img/icon_default.gif",link:"news_list.html"},
+	{ level:2, name:"数据还原", ico:"img/icon_default.gif",link:"recovery/Recovery_listback.action"},
 	
 	{ level:1, name:"公告管理", ico:"img/icon_default.gif",link:"bulletin_list.html"},
 	//{ level:1, name:"系统邮件", ico:"img/icon_default.gif"},

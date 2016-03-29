@@ -100,5 +100,38 @@ public class BackupAction extends SuperAction {
         return "backup_cron_success";
     }
 
+    //查询数据库
+    public String search(){
+        Connection conn = (Connection) session.getAttribute("severconn");
+        String keyword = request.getParameter("keyword");
+
+        List dbList = new ArrayList();
+        try {
+            Statement stmt = conn.createStatement();
+            String listDatabases = "SELECT Name FROM Master..SysDatabases ORDER BY Name";
+            ResultSet rs = stmt.executeQuery(listDatabases);
+            while (rs.next()) {
+                //System.out.println(rs.getString("Name"));
+                dbList.add(rs.getString("Name"));
+            }
+
+//            session.setAttribute("dblist", dbList);
+//            return "dblist_success";
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+        List reList = new ArrayList();
+
+        for (int i = 0; i < dbList.size(); i++){
+            if(dbList.get(i).toString().contains(keyword)){
+                reList.add(dbList.get(i));
+            }
+        }
+
+        session.setAttribute("relist", reList);
+
+        return "search_success";
+    }
 
 }

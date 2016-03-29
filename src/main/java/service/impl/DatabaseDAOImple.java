@@ -47,11 +47,11 @@ public class DatabaseDAOImple implements DatabaseDAO{
 
     public Connection getSqlServerConnection(Servers s){
         Connection conn = null;
-        String url = "jdbc:sqlserver://"+s.getHostip()+":"+s.getHostport()+";";
+        String url = "jdbc:jtds:sqlserver://"+s.getHostip()+":"+s.getHostport()+"/";
         String userid = s.getServername();
         String password = s.getServerpasswd();
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Class.forName("net.sourceforge.jtds.jdbc.Driver");
             conn = DriverManager.getConnection(url, userid, password);
         }catch (Exception e){
             e.printStackTrace();
