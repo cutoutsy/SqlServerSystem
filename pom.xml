@@ -64,6 +64,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- 用于SQL Server的连接-->
+        <dependency>
+            <groupId>net.sourceforge.jtds</groupId>
+            <artifactId>jtds</artifactId>
+            <version>1.2.4</version>
+        </dependency>
+
     </dependencies>
 
     <build>
