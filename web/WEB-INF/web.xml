@@ -16,7 +16,6 @@
         <url-pattern>/*</url-pattern><!-- 过滤所有的请求 -->
     </filter-mapping>
 
-
     <welcome-file-list>
         <welcome-file>/users/login.jsp</welcome-file>
     </welcome-file-list>
