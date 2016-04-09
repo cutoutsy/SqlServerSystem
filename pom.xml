@@ -84,9 +84,14 @@
                     <webXml>webapp/WEB-INF/web.xml</webXml>
                     <webResources>
                         <resource>
-                            <directory>web/</directory>
+                            <directory>webapp/</directory>
                             <includes>
                                 <include>**/*.jsp</include>
+                                <include>**/*.css</include>
+                                <include>**/*.js</include>
+                                <include>**/*.gif</include>
+                                <include>**/*.png</include>
+                                <include>**/*.jpg</include>
                             </includes>
                             <targetPath>/</targetPath>
                             <filtering>true</filtering>
