@@ -1,8 +1,8 @@
 package utils;
 
 import java.io.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * 文件读取类
@@ -95,5 +95,31 @@ public class IOUtil {
         }
     }
 
+    public static List getFilesNameStr(String desc_dir){
+        List reList = new ArrayList();
+        File dir = new File(desc_dir);
+        File[] files = dir.listFiles();
+        for (int i = 0; i < files.length; i++){
+            //System.out.println(files[i].toString());
+//            reList.add(files[i].toString());
+            long time = files[i].lastModified();
+            String formatTime = IOUtil.TimeStamp2Date(time, "yyyy-MM-dd HH:mm");
+            reList.add(files[i].toString()+"$"+formatTime);
+        }
+        return reList;
+    }
 
+    public static String TimeStamp2Date(long timestampString, String formats){
+        Long timestamp = timestampString;
+        String date = new SimpleDateFormat(formats).format(new Date(timestamp));
+        return date;
+    }
+
+    public static void main(String[] args){
+        List<String> li = getFilesNameStr("C:\\Program Files\\Microsoft SQL Server\\MSSQL11.MSSQLSERVER\\MSSQL\\Backup");
+        System.out.println(li.size());
+        for (int i = 0; i < li.size(); i++){
+            System.out.println(li.get(i) + "==");
+        }
+    }
 }

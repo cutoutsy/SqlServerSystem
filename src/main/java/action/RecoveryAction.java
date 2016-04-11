@@ -1,26 +1,39 @@
 package action;
 
-import com.opensymphony.xwork2.ActionContext;
+import utils.IOUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
+import java.io.File;
+import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.Map;
 
 /**
  * 数据恢复action类
  */
 public class RecoveryAction extends SuperAction {
     //列出当前所有的备份
-    public String listdatabase() {
+    public String listback() {
+        String bakPath = "C:\\Program Files\\Microsoft SQL Server\\MSSQL11.MSSQLSERVER\\MSSQL\\Backup";
+        List<String> bakList = IOUtil.getFilesNameStr(bakPath);
 
-        return "dblist_success";
+        Map<String, String> bakFileInfo = new HashMap<String, String>();
+        System.out.println(bakList.size());
+        for(int i = 0; i < bakList.size(); i++){
+            String fileName = "";
+            String baklist = bakList.get(i).toString().split("\\$")[0];
+            if(File.separator.equals("\\")){
+                fileName = baklist.split("\\\\")[baklist.split("\\\\").length-1];
+            }else{
+                fileName = baklist.split("/")[baklist.split("/").length-1];
+            }
 
+
+            bakFileInfo.put(fileName,  bakList.get(i).toString().split("\\$")[1]);
+        }
+
+        session.setAttribute("bakfileinfos", bakFileInfo);
+
+        return "baklist_success";
     }
 
 }

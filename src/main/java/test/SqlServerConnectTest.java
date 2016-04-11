@@ -50,6 +50,7 @@ public class SqlServerConnectTest {
     }
 
     public static void serverConnect(String db_connect_string, String db_userid, String db_password){
+
         try{
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             Connection conn = DriverManager.getConnection(db_connect_string, db_userid, db_password);
@@ -67,11 +68,11 @@ public class SqlServerConnectTest {
     //得到数据库连接实例
     public static Connection getSqlServerConnection(){
         Connection conn = null;
-        String url = "jdbc:sqlserver://127.0.0.1:1081;";
+        String url = "jdbc:jtds:sqlserver://127.0.0.1:1081/";
         String userid = "sa";
         String password = "xiaochuan";
         try{
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            Class.forName("net.sourceforge.jtds.jdbc.Driver");
             conn = DriverManager.getConnection(url, userid, password);
             System.out.println("connected");
         }catch (Exception e){
@@ -110,6 +111,7 @@ public class SqlServerConnectTest {
 //        listSqlServerDatabases();
 //        String relativelyPath=System.getProperty("user.dir");
 //        System.out.println(relativelyPath);
+        getSqlServerConnection();
 
     }
 }

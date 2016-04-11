@@ -87,9 +87,9 @@
 
 	<%
         //session中保存的时list, 直接==null不行
-		if( ((List)session.getAttribute("serversave")).size() == 0 ) {
+		if( ((Map)session.getAttribute("bakfileinfos")).size() == 0 ) {
     %>
-	<h3>&nbsp;&nbsp;&nbsp;&nbsp;没有保存的数据库,请先去连接保存.</h3>
+	<h3>&nbsp;&nbsp;&nbsp;&nbsp;没有保存的备份文件，请先去备份数据库.</h3>
 	<%}
 	%>
 	<!--
@@ -111,19 +111,19 @@
 		<col width="30%">
 		<col width="30%">
 		<tr class="title">
-			<td>数据库名称</td>
+			<td>备份文件</td>
 
-			<td>直接备份</td>
-			<td>策略备份</td>
+			<td>备份时间</td>
+			<td>还原</td>
 		</tr>
 
 		<!-- 遍历开始 -->
 
-		<s:iterator value="#session.dblist" var="dblist">
+		<s:iterator value="#session.bakfileinfos"  id="bakfileinfo" status="st">
 			<tr class="list">
-				<td><s:property value="#dblist"/></td>
-				<td><a href="<%=path%>/backup/Backup_backup.action?dbname=<s:property value='#dblist'/>" onclick="javascript: return confirm('确定备份吗？');">备份</a></td>
-				<td><a href="<%=path%>/backup/backup_cron.jsp?dbname=<s:property value='#dblist'/>">策略备份</a></td>
+				<td><s:property value="key"/></td>
+                <td><s:property value="value"/></td>
+				<td><a href="<%=path%>/backup/backup_cron.jsp?dbname=<s:property value='#dblist'/>">还原</a></td>
 			</tr>
 		</s:iterator>
 		<!-- 遍历结束 -->
