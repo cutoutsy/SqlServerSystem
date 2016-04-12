@@ -187,7 +187,7 @@ body {
 			<div class="item">
 				<label class="item-label">验证码</label> <input
 					class="item-text" type="text" id="code" name="gcode" maxlength="5"
-					style="width: 35%"> <img src="./getcodepic.jsp" alt="验证码" width="30%"
+					style="width: 35%"> <img src="/users/getcodepic.jsp" alt="验证码" width="30%"
 					height="80%">
 			</div>
 			<div class="item">

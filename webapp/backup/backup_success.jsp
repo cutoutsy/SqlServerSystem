@@ -79,15 +79,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="navi">
 	<!-- 导航空白 -->
 	<div id='naviDiv'>
-		<span><img src="../img/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;数据库管理<span>&nbsp;</span>
-		<span><img src="../img/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<a href="<%=path%>/students/Students_query.action">数据库连接</a><span>&nbsp;</span>
+		<span><img src="../img/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;数据备份<span>&nbsp;</span>
+		<span><img src="../img/arror.gif" width="7" height="11" border="0" alt=""></span>&nbsp;<a href="#">备份状态</a><span>&nbsp;</span>
 	</div>
 </div>
 <div id="tips">
 	<!-- 导航空白 -->
 </div>
 <div id="mainContainer">
-   <strong>数据库备份成功，<a href="<%=path%>/database/database_connected.jsp">查看备份状态</a></strong>
+   <strong>数据库备份成功</strong>
    <!--数据表格空白 -->
 </div>
 </body>

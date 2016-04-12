@@ -27,9 +27,7 @@ var treeMenu = [
 	{ level:1, name:"数据还原"},
 	{ level:2, name:"数据还原", ico:"img/icon_default.gif",link:"recovery/Recovery_listback.action"},
 	
-	{ level:1, name:"公告管理", ico:"img/icon_default.gif",link:"bulletin_list.html"},
-	//{ level:1, name:"系统邮件", ico:"img/icon_default.gif"},
-	//{ level:1, name:"网络文件", ico:"img/icon_default.gif",link:"complaint_list.html"}
+	{ level:1, name:"公告", ico:"img/icon_default.gif",link:"./bulletin_list.jsp"},
 ];
 </script>
 <style>

@@ -86,25 +86,15 @@
 <div id="tips">
 
 	<%
-        //session中保存的时list, 直接==null不行
+        //session中保存的时map, 直接==null不行
 		if( ((Map)session.getAttribute("bakfileinfos")).size() == 0 ) {
     %>
 	<h3>&nbsp;&nbsp;&nbsp;&nbsp;没有保存的备份文件，请先去备份数据库.</h3>
 	<%}
 	%>
-	<!--
-	<div id="buttonGroup">
-		<div class="button" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'">
-			<a href="<%=path%>/students/Students_add.jsp">添加学生</a>
-		</div>
-		<div class="button" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'">
-			<a>查找学生</a>
-		</div>
-	</div>
-	-->
+
 </div>
 <div id="mainContainer">
-	<!-- 从session中获取学生集合 -->
 
 	<table class="default" width="100%">
 		<col width="20%">
