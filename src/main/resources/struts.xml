@@ -38,6 +38,7 @@
 	<package name="recovery" namespace="/recovery" extends="struts-default">
 		<action name="*_*" class="action.{1}Action" method="{2}">
 			<result name="baklist_success">/recovery/bak_list.jsp</result>
+            <result name="recovery_success">/recovery/recovery_success.jsp</result>
 		</action>
 	</package>
 </struts>

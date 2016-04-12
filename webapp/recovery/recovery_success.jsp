@@ -87,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- 导航空白 -->
 </div>
 <div id="mainContainer">
-   <strong>数据库备份成功，<a href="<%=path%>/database/database_connected.jsp">查看备份状态</a></strong>
+   <strong>备份还原成功，<a href="<%=path%>/database/database_connected.jsp">查看还原状态</a></strong>
    <!--数据表格空白 -->
 </div>
 </body>

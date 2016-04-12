@@ -123,7 +123,7 @@
 			<tr class="list">
 				<td><s:property value="key"/></td>
                 <td><s:property value="value"/></td>
-				<td><a href="<%=path%>/backup/backup_cron.jsp?dbname=<s:property value='#dblist'/>">还原</a></td>
+                <td><a href="<%=path%>/recovery/Recovery_bakrecovery.action?filename=<s:property value='key'/>" onclick="javascript: return confirm('确定还原吗？');">还原</a></td>
 			</tr>
 		</s:iterator>
 		<!-- 遍历结束 -->
