@@ -52,7 +52,9 @@ public class RecoveryAction extends SuperAction {
         String dbname = name.split("\\.")[0];
         try {
 
-            String path = webtruepath + "\\" + name; // name文件名
+//            String path = webtruepath + "\\" + name; // name文件名
+            //还原路径会在前面添加一个sql server的默认备份路径﻿C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup
+            String path = "\\"+dbname + ".bak";
             System.out.println(path+"==="+dbname);
             String recoverySql = "ALTER DATABASE " +dbname+ " SET   ONLINE   WITH   ROLLBACK   IMMEDIATE";// 恢复所有连接
 
