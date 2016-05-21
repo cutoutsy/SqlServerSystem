@@ -92,28 +92,19 @@
     <h3>&nbsp;&nbsp;&nbsp;&nbsp;没有保存的数据库,请先去连接保存.</h3>
     <%}
     %>
-    <!--
-	<div id="buttonGroup">
-		<div class="button" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'">
-			<a href="<%=path%>/students/Students_add.jsp">添加学生</a>
-		</div>
-		<div class="button" onmouseout="this.style.backgroundColor='';this.style.fontWeight='normal'" onmouseover="this.style.backgroundColor='#77D1F6';this.style.fontWeight='bold'">
-			<a>查找学生</a>
-		</div>
-	</div>
-	-->
 </div>
 <div id="mainContainer">
-    <!-- 从session中获取学生集合 -->
 
     <table class="default" width="100%">
         <col width="20%">
+        <col width="30%">
         <col width="30%">
         <col width="30%">
         <tr class="title">
             <td>数据库名称</td>
 
             <td>直接备份</td>
+            <td>增量备份</td>
             <td>策略备份</td>
         </tr>
 
@@ -123,6 +114,7 @@
             <tr class="list">
                 <td><s:property value="#dblist"/></td>
                 <td><a href="<%=path%>/backup/Backup_backup.action?dbname=<s:property value='#dblist'/>" onclick="javascript: return confirm('确定备份吗？');">备份</a></td>
+                <td><a href="<%=path%>/backup/Backup_diffbackup.action?dbname=<s:property value='#dblist'/>" onclick="javascript: return confirm('确定备份吗？');">增量备份</a></td>
                 <td><a href="<%=path%>/backup/backup_cron.jsp?dbname=<s:property value='#dblist'/>">策略备份</a></td>
             </tr>
         </s:iterator>

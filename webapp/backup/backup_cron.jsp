@@ -118,7 +118,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	}
 
 	function connectSave(){
-		document.connectForm.action="<%=path%>/backup/Backup_cronbackupsave.action";
+		document.connectForm.action="<%=path%>/backup/Backup_cronbackup.action";
 		document.connectForm.submit();
 	}
 </script>

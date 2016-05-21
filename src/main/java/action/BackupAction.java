@@ -60,6 +60,28 @@ public class BackupAction extends SuperAction {
         return "backup_success";
     }
 
+    public String diffbackup(){
+        Connection conn = (Connection) session.getAttribute("severconn");
+        ActionContext context = ActionContext.getContext();
+        try {
+            String dbname = request.getParameter("dbname");
+            String base = System.getProperty("user.dir");
+            //备份路径会在前面添加一个sql server的默认备份路径﻿C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup
+            String path = "\\"+dbname + ".bak";
+            String bakSql = "backup database " + dbname + " to disk=? with DIFFERENTIAL";
+            //System.out.println(bakSql+"==========");
+            PreparedStatement bak = conn.prepareStatement(bakSql);
+            bak.setString(1, path);
+            bak.execute();
+            bak.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return "backup_success";
+    }
+
+
     //策略备份
     public String cronbackup(){
 

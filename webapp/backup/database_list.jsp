@@ -100,10 +100,12 @@
 		<col width="20%">
 		<col width="30%">
 		<col width="30%">
+		<col width="30%">
 		<tr class="title">
 			<td>数据库名称</td>
 
 			<td>直接备份</td>
+			<td>增量备份</td>
 			<td>策略备份</td>
 		</tr>
 
@@ -113,6 +115,7 @@
 			<tr class="list">
 				<td><s:property value="#dblist"/></td>
 				<td><a href="<%=path%>/backup/Backup_backup.action?dbname=<s:property value='#dblist'/>" onclick="javascript: return confirm('确定备份吗？');">备份</a></td>
+				<td><a href="<%=path%>/backup/Backup_diffbackup.action?dbname=<s:property value='#dblist'/>" onclick="javascript: return confirm('确定备份吗？');">增量备份</a></td>
 				<td><a href="<%=path%>/backup/backup_cron.jsp?dbname=<s:property value='#dblist'/>">策略备份</a></td>
 			</tr>
 		</s:iterator>
