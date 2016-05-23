@@ -6,6 +6,9 @@ import utils.IOUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -68,6 +71,34 @@ public class RecoveryAction extends SuperAction {
             e.printStackTrace();
         }
         return "recovery_success";
+    }
+
+    //删除备份文件
+    public String bakdelete(){
+        Connection conn = (Connection) session.getAttribute("severconn");
+        ActionContext context = ActionContext.getContext();
+        HttpServletRequest request = (HttpServletRequest) context.get(ServletActionContext.HTTP_REQUEST);
+        String webtruepath = "C:\\Program Files\\Microsoft SQL Server\\MSSQL11.MSSQLSERVER\\MSSQL\\Backup";
+        String name = request.getParameter("filename");
+
+        String dbname = name.split("\\.")[0];
+        try {
+//            String path = webtruepath + "\\" + name; // name文件名
+            //还原路径会在前面添加一个sql server的默认备份路径﻿C:\Program Files\Microsoft SQL Server\MSSQL11.MSSQLSERVER\MSSQL\Backup
+            String path = webtruepath+"/"+dbname + ".bak";
+
+            //删除文件
+            File file = new File(path);
+            if(file.delete()){
+                System.out.println(file.getName() + " is deleted!");
+            }else{
+                System.out.println("Delete operation is failed.");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "delete_success";
     }
 
 }

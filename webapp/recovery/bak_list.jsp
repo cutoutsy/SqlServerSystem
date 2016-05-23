@@ -102,9 +102,9 @@
 		<col width="30%">
 		<tr class="title">
 			<td>备份文件</td>
-
 			<td>备份时间</td>
 			<td>还原</td>
+			<td>删除</td>
 		</tr>
 
 		<!-- 遍历开始 -->
@@ -114,6 +114,7 @@
 				<td><s:property value="key"/></td>
                 <td><s:property value="value"/></td>
                 <td><a href="<%=path%>/recovery/Recovery_bakrecovery.action?filename=<s:property value='key'/>" onclick="javascript: return confirm('确定还原吗？');">还原</a></td>
+                <td><a href="<%=path%>/recovery/Recovery_bakdelete.action?filename=<s:property value='key'/>" onclick="javascript: return confirm('确定删除吗？');">删除</a></td>
 			</tr>
 		</s:iterator>
 		<!-- 遍历结束 -->

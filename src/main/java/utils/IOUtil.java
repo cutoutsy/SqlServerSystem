@@ -122,4 +122,9 @@ public class IOUtil {
             System.out.println(li.get(i) + "==");
         }
     }
+
+    // 判断文件是否存在
+    public static boolean existFile(String filepath){
+        return new File(filepath).exists();
+    }
 }
