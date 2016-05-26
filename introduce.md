@@ -36,7 +36,7 @@ public boolean connSqlServer(Servers s){
 
 采用JTDS连接,JDTS是一个开发源代码的纯Java写的,用于Microsoft SQL Server的驱动程序,这个函数连接成功返回true,失败返回false.
 
-3. Session机制
+3.Session机制
 
 整个系统代码里使用了session机制,session是web开发里的一个重要概念.主要用来存储关于用户会话的信息或者更改用户会话的设置.在系统代码里存储了
 用户的session信息,以便登录的用户才可以进行访问.针对数据库连接,也将正在连接的数据库设置在seesion里,这样可以保证在备份,查询,还原时操作的是
